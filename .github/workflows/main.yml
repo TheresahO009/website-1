@@ -13,12 +13,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Ruby 2.2.6
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v3
+        with:
+          ruby-version: 3.3.0
+
+      - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ruby2.2 ruby2.2-dev
           gem install bundler
           bundle install
 
       - name: Build Jekyll site
         run: bundle exec jekyll build -d docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs
+
