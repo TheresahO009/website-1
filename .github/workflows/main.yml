@@ -12,7 +12,7 @@ jobs:
 
     steps:
       -name:  Checkout repository      
-       uses:  actions/ checkout@v2
+       uses:  actions/checkoutv2
 
       -name:  Create docs folder
        run:  |
