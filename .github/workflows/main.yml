@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-23.10
 
     steps:
       - name: Checkout repository
@@ -24,7 +24,7 @@ jobs:
           bundle install
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build -d docs -v
+        run: bundle exec jekyll build -d docs 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
