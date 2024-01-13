@@ -1,0 +1,19 @@
+name:  Build and Deploy
+
+on:
+  push:
+   branches:
+     - main
+
+
+jobs:
+  build:
+    runs-out:  ubuntu-latest
+
+    steps:
+      -name:  Checkout repository
+       uses:  actions/checkout@v2
+
+      -name:  Create docs folder
+       run:  |
+        jekyll build  -d docs
