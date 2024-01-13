@@ -17,5 +17,6 @@ jobs:
       - name:  Create docs folder
         run:  mkdir docs
 
-      - name:  |
-        jekyll build  -d docs
+      - name:  Build with Jekyll
+        run:  |
+          jekyll build  -d docs
