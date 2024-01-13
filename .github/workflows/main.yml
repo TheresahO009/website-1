@@ -11,12 +11,11 @@ jobs:
     runs-out:  ubuntu-latest
 
     steps:
-      -name:  Checkout repository      
-       uses:  actions/checkout@v2
+      - name:  Checkout repository      
+        uses:  actions/checkout@v2
 
-       -name:  Create docs folder
+      - name:  Create docs folder
         run:  mkdir docs
 
-      -name:  Create docs folder
-       run:  |
+      - name:  |
         jekyll build  -d docs
