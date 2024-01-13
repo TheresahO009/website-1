@@ -13,14 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v2
-        with:
-          bundler-cache: true
-          version: 2.6.5
-
-      - name: Install dependencies
+      - name: Set up Ruby 2.2.6
         run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby2.2 ruby2.2-dev
           gem install bundler
           bundle install
 
