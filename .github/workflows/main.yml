@@ -17,7 +17,7 @@ jobs:
         uses: ruby/setup-ruby@v2
         with:
           bundler-cache: true
-          version: 2.2.6
+          version: 2.6.5
 
       - name: Install dependencies
         run: |
