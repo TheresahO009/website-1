@@ -13,8 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Create docs folder
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.x
+
+      - name: Install dependencies
         run: |
           gem install jekyll bundler
           bundle install
-          jekyll build -d docs
+
+      - name: Build Jekyll site
+        run: jekyll build -d docs
