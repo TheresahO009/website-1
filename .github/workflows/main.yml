@@ -1,22 +1,20 @@
-name:  Build and Deploy
+name: Build and Deploy
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
   build:
-    runs-on:  ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name:  Checkout repository      
-        uses:  actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name:  Create docs folder
-        run:  mkdir docs
-
-      - name:  Build with Jekyll
-        run:  |
-          jekyll build  -d docs
+      - name: Create docs folder
+        run: |
+          gem install jekyll bundler
+          bundle install
+          jekyll build -d docs
